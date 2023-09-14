@@ -1,5 +1,13 @@
 txt = '''
-        // Content Control
+        $this->start_controls_section(
+            '{theme_name}_{section_name}_contents',
+            [
+                'label' => esc_html__('{section_name_u} Contents', '{lang_domain}' ),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        //{section_name_u} Content Control
 		$this->add_control(
 			'{theme_name}_{section_name}_content',
 			[

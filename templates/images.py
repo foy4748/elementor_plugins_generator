@@ -1,5 +1,5 @@
 txt = '''
-		// Image Control ------------------------------
+		// {section_name_u} Image Control ------------------------------
 		$this->start_controls_section(
 			'{theme_name}_{section_name}_image_widget',
 			[
@@ -20,5 +20,7 @@ txt = '''
 		);
 
 		$this->end_controls_section();
+		// End of {section_name_u} Image Control ------------------------------
+
 
 '''
