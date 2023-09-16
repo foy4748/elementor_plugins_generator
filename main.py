@@ -1,4 +1,4 @@
-from templates import headings, paragraphs, images
+from templates import headings, paragraphs, images,repeaters
 from caseconverter import snakecase
 #--------------------------------------------------
 
@@ -10,7 +10,7 @@ THEME_IMG_DIR_NAME = 'SAAS_THEME_IMG_DIR'
 
 # Selecting Widget Controler Type
 # And Section Name
-WIDGET_TYPES = ['headings','paragraphs','images']
+WIDGET_TYPES = ['headings','paragraphs','images','icon_repeater']
 
 # Printing all possible options
 for idx,itm in enumerate(WIDGET_TYPES):
@@ -58,6 +58,20 @@ match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
             theme_name=THEME_NAME,
             theme_img_dir_variable=THEME_IMG_DIR_NAME,
             img_filename=IMG_FILENAME
+        )
+        writeToFile(output)
+        pass
+    case "icon_repeater":
+        IMG_FILENAME = input('Enter IMG filename: \n')
+        REPEATER_TITLE = input('Enter IMG title: \n')
+        output = repeaters.txt.format(
+            section_name=snakecase(SECTION_NAME),
+            section_name_u=SECTION_NAME,
+            lang_domain=LANG_DOMAIN,
+            theme_name=THEME_NAME,
+            theme_img_dir_variable=THEME_IMG_DIR_NAME,
+            repeater_item_icon_default=IMG_FILENAME,
+            repeater_item_title_default=REPEATER_TITLE
         )
         writeToFile(output)
         pass
