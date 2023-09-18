@@ -26,8 +26,8 @@ def writeToFile(txt):
 
 match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
     case "headings": 
-        SECTION_TITLE_DEFAULT= input('Default Title')
-        SECTION_SUBTITLE_DEFAULT= input('Default SubTitle')
+        SECTION_TITLE_DEFAULT= input('Default Title: \n')
+        SECTION_SUBTITLE_DEFAULT= input('Default SubTitle: \n')
         output = headings.txt.format(
             section_name=snakecase(SECTION_NAME),
             section_name_u=SECTION_NAME,
@@ -39,7 +39,7 @@ match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
         writeToFile(output)
         pass
     case "paragraphs":
-        SECTION_CONTENT_DEFAULT = input('Default Paragraph: ')
+        SECTION_CONTENT_DEFAULT = input('Default Paragraph: \n')
         output = paragraphs.txt.format(
             section_name=snakecase(SECTION_NAME),
             section_name_u=SECTION_NAME,
@@ -64,6 +64,7 @@ match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
     case "icon_repeater":
         IMG_FILENAME = input('Enter IMG filename: \n')
         REPEATER_TITLE = input('Enter IMG title: \n')
+        REPEATER_CONTENT =  input('Enter IMG content: \n')
         output = repeaters.txt.format(
             section_name=snakecase(SECTION_NAME),
             section_name_u=SECTION_NAME,
@@ -71,7 +72,8 @@ match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
             theme_name=THEME_NAME,
             theme_img_dir_variable=THEME_IMG_DIR_NAME,
             repeater_item_icon_default=IMG_FILENAME,
-            repeater_item_title_default=REPEATER_TITLE
+            repeater_item_title_default=REPEATER_TITLE,
+            repeater_item_content_default=REPEATER_CONTENT
         )
         writeToFile(output)
         pass
