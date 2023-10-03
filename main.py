@@ -1,4 +1,4 @@
-from templates import headings, paragraphs, images,repeaters
+from templates import headings, paragraphs, images, repeaters, colors
 from caseconverter import snakecase
 #--------------------------------------------------
 
@@ -10,7 +10,7 @@ THEME_IMG_DIR_NAME = 'SAAS_THEME_IMG_DIR'
 
 # Selecting Widget Controler Type
 # And Section Name
-WIDGET_TYPES = ['headings','paragraphs','images','icon_repeater']
+WIDGET_TYPES = ['headings','paragraphs','images','icon_repeater', 'colors']
 
 # Printing all possible options
 for idx,itm in enumerate(WIDGET_TYPES):
@@ -74,6 +74,18 @@ match WIDGET_TYPES[int(SELECTED_WIDGET_TYPE)]:
             repeater_item_icon_default=IMG_FILENAME,
             repeater_item_title_default=REPEATER_TITLE,
             repeater_item_content_default=REPEATER_CONTENT
+        )
+        writeToFile(output)
+        pass
+    case "colors":
+        CLASS_NAME = input('Enter Class Name: \n')
+        output = colors.txt.format(
+            section_name=snakecase(SECTION_NAME),
+            section_name_u=SECTION_NAME,
+            lang_domain=LANG_DOMAIN,
+            theme_name=THEME_NAME,
+            theme_img_dir_variable=THEME_IMG_DIR_NAME,
+            class_name=CLASS_NAME
         )
         writeToFile(output)
         pass
